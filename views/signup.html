@@ -1,0 +1,20 @@
+<html>
+
+<head>
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+  <script async src="../js/Controllers/auth.js"></script>
+</head>
+
+<body>
+  <input type="text" id="signup_username"></input>
+  <input type="password" id="signup_password"></input>
+  <button onclick="auth.signup(document.getElementById('signup_username').value, document.getElementById('signup_password').value)">Sign Up</button>
+
+  <input type="text" id="login_username"></input>
+  <input type="password" id="login_password"></input>
+  <button onclick="auth.login(document.getElementById('login_username').value, document.getElementById('login_password').value)">Login</button>
+
+</body>
+
+
+</html>
