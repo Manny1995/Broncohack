@@ -1,12 +1,33 @@
-var signup = {
-  init: function(username, password){
+var auth = {
 
+  login: function(username, password){
     if (!username)
       throw "NullUsernameException"
     else if (!password)
       throw "NullPasswordException"
 
-    var ref = new Firebase("https://bhacks-2016.firebaseio.com/users");
+      var ref = new Firebase("https://bhacks-2016.firebaseio.com");
+
+
+      ref.authWithPassword({
+        email    : username,
+        password : password
+      }, function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
+  },
+
+  signup: function(username, password){
+    if (!username)
+      throw "NullUsernameException"
+    else if (!password)
+      throw "NullPasswordException"
+
+    var ref = new Firebase("https://bhacks-2016.firebaseio.com/");
 
     //firebase user creation
     ref.createUser({
