@@ -34,15 +34,18 @@ var user = {
   },
     
  getPosts: function() {
+    if (!user.isLoggedIn())
+        throw "UserNotLoggedInException"
+         
     var ref = user._ref;
-     var postsRef = ref.child("posts");
+    var postsRef = ref.child("posts");
      
-     postsRef.on("value", function(snapshot) {
-        console.log(snapshot.val());
+     postsRef.on("child_added", function(postList, prevChildKey) {
+         var list = postList.val();
+         updateNewsfeed(list);
      }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
-     });
-     
+     });   
  }
     
 }
