@@ -1,5 +1,4 @@
 var auth = {
-
   login: function(username, password){
     if (!username)
       throw "NullUsernameException"
@@ -15,6 +14,7 @@ var auth = {
         if (error) {
           console.log("Login Failed!", error);
         } else {
+          user.init(authData.uid)
           console.log("Authenticated successfully with payload:", authData);
         }
       });

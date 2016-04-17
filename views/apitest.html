@@ -3,6 +3,7 @@
 <head>
   <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
   <script async src="../js/Controllers/auth.js"></script>
+  <script async src="../js/Controllers/user.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,10 @@
   <input id="newPost_title" placeholder="Title"></input>
   <input id="newPost_response" placeholder="Response"></input>
   <input id="newPost_link" placeholder="Link"></input>
-
+  <button onclick="
+    user.newPost(document.getElementById('newPost_title').value,
+                  document.getElementById('newPost_response').value,
+                  document.getElementById('newPost_link').value)"> New Post</button>
 
 </body>
 
