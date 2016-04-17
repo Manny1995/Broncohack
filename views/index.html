@@ -14,25 +14,16 @@
     <link rel="stylesheet" href="../css/styles.css">
       
       
-    <script>
-        function submitPressed() {
-            
-            var newUser = document.getElementById('loginOrSignUp').checked;
-            if (newUser == true) {
-                auth.signup(document.getElementById('signup_username').value, document.getElementById('signup_password').value);
-            }
-            else {
-                auth.login(document.getElementById('signup_username').value, document.getElementById('signup_password').value)
-            }
-        }  
-    </script>
+
   </head>
   <body>
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
     
-      <script async src="../js/Controllers/auth.js"></script>
+    <script src="functions.js"></script>
+    <script async src="../js/Controllers/auth.js"></script>
+    <script async src="../js/Controllers/user.js"></script>
   </body>
 </html>
 
@@ -136,6 +127,7 @@
             <input type="text" class="form-control" id="title">
             <textarea class="form-control" rows="5" id="description"></textarea>
             <input type="text" class="form-control" id="link">
+              <button type="submit" class="btn btn-primary" onclick="onNewPost()">Submit</button>
         </div>
 
 </div>
