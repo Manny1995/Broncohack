@@ -8,7 +8,6 @@ var auth = {
 
       var ref = new Firebase("https://bhacks-2016.firebaseio.com");
 
-
       ref.authWithPassword({
         email    : username,
         password : password
@@ -37,8 +36,14 @@ var auth = {
       if (error) {
         console.log("Error creating user:", error);
       } else {
+        ref.child("users").child(userData.uid).set({
+          affiliation: "Republican",
+          posts: []
+        });
         console.log("Successfully created user account with uid:", userData.uid);
       }
     });
+
+
   }
 }
