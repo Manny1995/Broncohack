@@ -31,5 +31,18 @@ var user = {
     console.log('Logging in user with uid: ' + uid)
     user._uid = uid
     user._ref =  new Firebase('https://bhacks-2016.firebaseio.com/users/' + uid)
-  }
+  },
+    
+ getPosts: function() {
+    var ref = user._ref;
+     var postsRef = ref.child("posts");
+     
+     postsRef.on("value", function(snapshot) {
+        console.log(snapshot.val());
+     }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+     });
+     
+ }
+    
 }
